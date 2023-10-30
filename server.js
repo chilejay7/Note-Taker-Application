@@ -9,8 +9,8 @@ const PORT = 8081;
 app.use(express.static('public'));
 
 app.get('/notes', (req, res) => {
-    res.render('notes')
-    res.send("Take some notes!")
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
+    // res.send("Take some notes!")
 })
 
 app.get('/api/notes/:id', () => {
@@ -22,7 +22,7 @@ app.post('/api/notes', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.render('index')
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
 app.listen(PORT, () => {
