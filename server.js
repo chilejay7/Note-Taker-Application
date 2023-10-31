@@ -3,10 +3,12 @@ const app = express();
 
 const util = require('util');
 const path = require('path');
+const db = require('./db/db.json');
 
 const PORT = 8081;
 
 app.use(express.static('public'));
+app.use(express.json());
 
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));
