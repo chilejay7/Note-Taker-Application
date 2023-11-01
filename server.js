@@ -3,7 +3,7 @@ const app = express();
 
 const util = require('util');
 const path = require('path');
-const fs= require('fs');
+const fs = require('fs');
 const db = require('./db/db.json');
 
 const PORT = 8081;
@@ -29,7 +29,11 @@ app.get('/api/notes/:id', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-    res.send('Creating your notes.')
+    const payLoad = JSON.stringify(req.body);
+    fs.writeFile('./db/db.json', payLoad, (err) => {
+        err ? console.log(err): console.log('Data written to db')
+    });
+    // console.log(req.body);
 });
 
 app.get('*', (req, res) => {
