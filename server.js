@@ -10,9 +10,18 @@ const PORT = 8081;
 app.use(express.static('public'));
 app.use(express.json());
 
+const stringData = JSON.stringify(db);
+
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/notes.html'));
+    // res.sendFile(path.join(__dirname, '/public/notes.html'));
+    
+    console.log(req)
 });
+
+app.get('/api/notes', (req, res) => {
+    res.json(db);
+    // res.send('Here are your notes.')
+})
 
 app.get('/api/notes/:id', (req, res) => {
     const { id } = req.params;
