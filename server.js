@@ -13,9 +13,9 @@ app.use(express.json());
 const stringData = JSON.stringify(db);
 
 app.get('/notes', (req, res) => {
-    // res.sendFile(path.join(__dirname, '/public/notes.html'));
+    res.sendFile(path.join(__dirname, '/public/notes.html'));
     
-    console.log(req)
+    console.info(req.method)
 });
 
 app.get('/api/notes', (req, res) => {
