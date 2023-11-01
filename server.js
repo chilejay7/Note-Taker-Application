@@ -3,6 +3,7 @@ const app = express();
 
 const util = require('util');
 const path = require('path');
+const fs= require('fs');
 const db = require('./db/db.json');
 
 const PORT = 8081;
@@ -20,7 +21,6 @@ app.get('/notes', (req, res) => {
 
 app.get('/api/notes', (req, res) => {
     res.json(db);
-    // res.send('Here are your notes.')
 })
 
 app.get('/api/notes/:id', (req, res) => {
