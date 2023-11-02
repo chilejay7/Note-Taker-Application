@@ -29,11 +29,30 @@ app.get('/api/notes/:id', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-    const payLoad = JSON.stringify(req.body);
-    fs.writeFile('./db/db.json', payLoad, (err) => {
-        err ? console.log(err): console.log('Data written to db')
-    });
-    // console.log(req.body);
+        const { title, text } = req.body
+        console.log(title, text)
+        const newNote = {
+            title,
+            text,
+        }
+
+        fs.readFile('./db/db.json', 'utf8', (err, data) => {
+            if (err) {
+                console.log(err) 
+            } else {
+                const parsedNotes = JSON.parse(data)
+                console.log(parsedNotes)
+                parsedNotes.push(newNote);
+                console.log(parsedNotes);
+
+                const newString = JSON.stringify(parsedNotes);
+
+                fs.writeFile('./db/db.json', newString, (err) => {
+                    err ? console.log(err): console.log('Data written to db')
+                });
+                res.send('Note successfully written to the database')
+            }
+        });
 });
 
 app.get('*', (req, res) => {
