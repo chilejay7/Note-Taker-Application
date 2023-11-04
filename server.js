@@ -10,7 +10,7 @@ const db = require('./db/db.json');
 
 app.use(express.static('public'));
 
-// Middleware for parsing JSON and urlencoded form data
+// Middleware for parsing JSON and urlencoded form data.
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -64,7 +64,7 @@ app.post('/api/notes', (req, res) => {
                 fs.writeFile('./db/db.json', newString, (err) => {
                     err ? console.log(err) : console.log('Data written to db')
                 });
-                res.json(db)
+                res.send('Note successfully written to the database')
             }
         });
 });

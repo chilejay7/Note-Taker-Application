@@ -30,7 +30,7 @@ When accessed, the application provides the home page through a GET request.  Th
 
 When the notes.html file initially loads, the Note Title and Note Text sections should be empty and ready for a new note.  Clicking the placeholder text in the corresponding fields will provide space to create a new note.  When text is entered into the text section, the save button will display in the pages header next to the add button.  Clicking the save button triggers a `POST` request to the `/api/notes` endpoint to write the contents of the text fields to the database.  The POST request triggers the endpoint to read the current contents of the database, capture the body of the content from the request, and push the new object into the existing array stored in the database with a uuid specific to that note.
 
-Clicking the title of an existing note in the left-hand menu will trigger a `GET` request to the `/api/notes/:id` endpoint.  The id parameter is used to identify the specific note and retrieve its contents from the database.  The note will be displayed in the main note taking section after it is clicked.
+Clicking the title of an existing note in the left-hand menu will display the text and title of the information stored in the database.  The note will be displayed in the main note taking section after it is clicked.
 
 To clear the display, the add button in the upper right-hand corner of the window can be clicked.  A new note can then be added.
 
