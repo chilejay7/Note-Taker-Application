@@ -5,8 +5,7 @@
 
 The Note Taker application allows end users to write notes to keep track of their most important daily tasks.  The application provides space to enter new notes, save notes, retrieve previously created notes, and delete notes when items are completed.  The application connects with different endpoints defined using `express.js` on the back-end to facilitate connections and complete the required tasks.  Each note is given a universally unique identifier (uuid) using the `uuid`  module.  The id is used to retrieve previously created notes and either delete or display their contents.
 
-![Note Taker Application](./images/note_taker_home.png)
-![Note Taker Application](./images/note_taker_notes.png)
+[Access the Deployed Heroku Application](https://note-taker-cj7-0fdcc612e527.herokuapp.com/)
 
 ## Table of Contents 
 
@@ -33,6 +32,9 @@ When the notes.html file initially loads, the Note Title and Note Text sections 
 Clicking the title of an existing note in the left-hand menu will display the text and title of the information stored in the database.  The note will be displayed in the main note taking section after it is clicked.
 
 To clear the display, the add button in the upper right-hand corner of the window can be clicked.  A new note can then be added.
+
+![Note Taker Application](./images/note_taker_home.png)
+![Note Taker Application](./images/note_taker_notes.png)
 
 ## License
 
