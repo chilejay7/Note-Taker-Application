@@ -12,8 +12,6 @@ const PORT = process.env.PORT || 8081;
 app.use(express.static('public'));
 app.use(express.json());
 
-const stringData = JSON.stringify(db);
-
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));
     
