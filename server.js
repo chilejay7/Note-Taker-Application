@@ -42,22 +42,21 @@ app.post('/api/notes', (req, res) => {
             if (err) {
                 console.log(err) 
             } else {
-                const parsedNotes = JSON.parse(data)
-                console.log(parsedNotes)
+                const parsedNotes = JSON.parse(data);
                 parsedNotes.push(newNote);
                 console.log(parsedNotes);
 
                 const newString = JSON.stringify(parsedNotes);
 
                 fs.writeFile('./db/db.json', newString, (err) => {
-                    err ? console.log(err): console.log('Data written to db')
+                    err ? console.log(err) : console.log('Data written to db')
                 });
                 res.send('Note successfully written to the database')
             }
         });
 });
 
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
