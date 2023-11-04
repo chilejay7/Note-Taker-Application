@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const PORT = process.env.PORT || 8081;
 
 const util = require('util');
 const path = require('path');
@@ -7,10 +8,11 @@ const fs = require('fs');
 const { v4: uuid } = require('uuid');
 const db = require('./db/db.json');
 
-const PORT = process.env.PORT || 8081;
-
 app.use(express.static('public'));
+
+// Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 // The GET request initiated by clicking the Get Started button on the home page will provide the notes.html document.
 app.get('/notes', (req, res) => {
@@ -24,7 +26,7 @@ app.get('/api/notes', (req, res) => {
     res.json(db);
 })
 
-app.get('/api/notes/:id', (req, res) => {
+app.delete('/api/notes/:id', (req, res) => {
     const { id } = req.params;
     res.send('Here are your notes.')
 });
