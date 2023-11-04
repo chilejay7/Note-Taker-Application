@@ -43,7 +43,7 @@ app.post('/api/notes', (req, res) => {
                 console.log(err) 
             } else {
                 const parsedNotes = JSON.parse(data)
-                console.log(parsedNotes)
+                console.log(parsedNotes);
                 parsedNotes.push(newNote);
                 console.log(parsedNotes);
 
@@ -57,7 +57,7 @@ app.post('/api/notes', (req, res) => {
         });
 });
 
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
