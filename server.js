@@ -7,12 +7,10 @@ const fs = require('fs');
 const { v4: uuid } = require('uuid');
 const db = require('./db/db.json');
 
-const PORT = 8081;
+const PORT = process.env.PORT || 8081;
 
 app.use(express.static('public'));
 app.use(express.json());
-
-const stringData = JSON.stringify(db);
 
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/notes.html'));
