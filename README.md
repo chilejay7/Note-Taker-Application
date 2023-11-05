@@ -31,7 +31,7 @@ When the notes.html file initially loads, the Note Title and Note Text sections 
 
 Clicking the title of an existing note in the left-hand menu will display the text and title of the information stored in the database.  The note will be displayed in the main note taking section after it is clicked.
 
-To clear the display, the add button in the upper right-hand corner of the window can be clicked.  A new note can then be added.
+To clear the display, the "Clear Form" button in the upper right-hand corner of the window can be clicked.  A new note can then be added.  Notes can also be deleted using the trash icon.
 
 ![Note Taker Application](./images/note_taker_home.png)
 ![Note Taker Application](./images/note_taker_notes.png)
@@ -44,7 +44,7 @@ This application is covered under the license linked below.  For further informa
 
 ## Contributions
 
-No additional contributions from other developers were made to this project.
+Lacey Trokey was consulted to help process the delay in GET requests reading changes to the database after updates.  Lacey helped to define the promisify of read and write operations.
 
 ## Questions
 

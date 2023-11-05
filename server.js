@@ -91,7 +91,7 @@ app.delete('/api/notes/:id', (req, res) => {
             const noteDelete = parsedNotes.find(findId);
             parsedNotes.splice(parsedNotes.indexOf(noteDelete), 1);
             console.log(parsedNotes);
-            return (parsedNotes);
+            return parsedNotes;
         })
         .then((data) => {
             writing('./db/db.json', JSON.stringify(data));
