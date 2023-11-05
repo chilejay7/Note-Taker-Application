@@ -1,17 +1,12 @@
 [
     {
-        "title": "Sleep",
-        "text": "I have to remember to sleep more.",
-        "id": "99828af8-2389-4ecf-b4f7-a59973b5b244"
+        "title": "Dinner",
+        "text": "Make Dinner",
+        "id": "18bbeba1-e1ef-42fe-ac89-b3c506c298c5"
     },
     {
-        "title": "Groceries",
-        "text": "Go to the store for groceries.  We need things for dinner from King Sooper's.  I also need to go to Safeway for a few items. ",
-        "id": "faa7fd54-7f70-47f1-8500-e27775caa8c9"
-    },
-    {
-        "title": "Project",
-        "text": "Complete project for boot camp.",
-        "id": "436f67d7-c0b9-4d8d-bacf-b5e2ea438fce"
+        "title": "Study",
+        "text": "Finish project",
+        "id": "37561682-9f83-4a28-9329-9a3a2cab91a4"
     }
 ]

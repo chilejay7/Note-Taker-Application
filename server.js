@@ -52,9 +52,14 @@ app.post('/api/notes', (req, res) => {
         text,
         id: uuid(),
     }
-   
-    readFromFile ('./db/db.json', newNote);
-    res.send('Your notes were saved to the database.');
+
+    if (!title || !text) {
+        res.status(400);
+        res.send('Please include a title and text content for your note.')
+    } else {
+        readFromFile ('./db/db.json', newNote);
+        res.send('Your notes were saved to the database.');
+    }
 });
 
 // The GET request initiated by clicking the Get Started button on the home page will provide the notes.html document.
@@ -66,17 +71,33 @@ app.get('/notes', (req, res) => {
 
 // This endpoint responds with the data needed by the menu at /notes to display existing notes.
 app.get('/api/notes', (req, res) => {
-    // res.json(db);
     reading ('./db/db.json', 'utf8')
         .then((data) => {
             res.json(JSON.parse(data));
-            console.log(JSON.parse(data));
+            // console.log(JSON.parse(data));
         })
 })
 
 app.delete('/api/notes/:id', (req, res) => {
     const { id } = req.params;
-    res.send('Here are your notes.')
+
+    findId = (note) => {
+        return note.id === id;
+    }
+
+    reading('./db/db.json', 'utf8')
+        .then((data) => {
+            const parsedNotes = JSON.parse(data);
+            const noteDelete = parsedNotes.find(findId);
+            parsedNotes.splice(parsedNotes.indexOf(noteDelete), 1);
+            console.log(parsedNotes);
+            return (parsedNotes);
+        })
+        .then((data) => {
+            writing('./db/db.json', JSON.stringify(data));
+        })
+
+    res.send('Note successfully removed from the database.')
 });
 
 // This route will return the user to the home page if they navigate to an endpoint that has not been defined.
