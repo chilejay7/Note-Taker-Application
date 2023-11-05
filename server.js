@@ -58,7 +58,7 @@ app.post('/api/notes', (req, res) => {
                 console.log(parsedNotes);
 
                 // The array again has to be stringified for storage in the database file.
-                const newString = JSON.stringify(parsedNotes);
+                const newString = JSON.stringify(parsedNotes, null, 4);
 
                 // The new array is written back to the database.
                 fs.writeFile('./db/db.json', newString, (err) => {
