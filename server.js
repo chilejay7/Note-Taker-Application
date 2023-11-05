@@ -40,8 +40,6 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // This route receives POST requests when the save button is used.
-    // The database file is read to retrieve existing notes already in the database
-
 app.post('/api/notes', (req, res) => {
 
     // The title and text from the new note created are destructured from the request's body property.  They are used to create a new object.
