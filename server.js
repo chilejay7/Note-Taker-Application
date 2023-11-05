@@ -12,6 +12,11 @@ const db = require('./db/db.json');
 const reading = util.promisify(fs.readFile);
 const writing = util.promisify(fs.writeFile);
 
+// The contents of the database are read from the file.
+// The database read is passed as the data to the .then and is parsed.
+// The new object from the POST request is pushed to the existing array.
+// The array again has to be stringified for storage in the database file.
+// The new array is written back to the database.
 const readFromFile = (fileName, note) => {
     return reading(fileName, 'utf8')
     .then((data) => {
@@ -35,11 +40,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // This route receives POST requests when the save button is used.
-    // The database file is read to retrieve existing notes already in the database.
-        // Notes are first parsed since they have to be stringified for storage.
-        // The new object from the POST request is pushed to the existing array.
-        // The array again has to be stringified for storage in the database file.
-        // The new array is written back to the database.
+    // The database file is read to retrieve existing notes already in the database
 
 app.post('/api/notes', (req, res) => {
 
