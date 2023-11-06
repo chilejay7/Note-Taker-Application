@@ -8,6 +8,7 @@ const reading = util.promisify(fs.readFile);
 const writing = util.promisify(fs.writeFile);
 
 router.use(express.json());
+router.use(express.urlencoded({extended: true}));
 
 // The contents of the database are read from the file.
 // The database read is passed as the data to the .then and is parsed.
