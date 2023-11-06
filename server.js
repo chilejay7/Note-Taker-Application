@@ -18,20 +18,20 @@ const writing = util.promisify(fs.writeFile);
 // The array again has to be stringified for storage in the database file.
 // The new array is written back to the database.
 const readFromFile = (fileName, note) => {
-    return reading(fileName, 'utf8')
-    .then((data) => {
-        const parsedNotes = JSON.parse(data);
-        parsedNotes.push(note);
-        console.log(parsedNotes);
-        const stringData = JSON.stringify(parsedNotes)
-        console.log(stringData);
-        return stringData;
-    })
-    .then((data) => {
-        writing(fileName, data);
-        console.log('Finished writing to the database.')
-    })
-}
+    reading(fileName, 'utf8')
+        .then((data) => {
+            const parsedNotes = JSON.parse(data);
+            parsedNotes.push(note);
+            console.log(parsedNotes);
+            const stringData = JSON.stringify(parsedNotes)
+            console.log(stringData);
+            return stringData;
+        })
+        .then((data) => {
+            writing(fileName, data);
+            console.log('Finished writing to the database.')
+        });
+};
 
 app.use(express.static('public'));
 
