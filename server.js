@@ -81,14 +81,10 @@ app.get('/api/notes', (req, res) => {
 app.delete('/api/notes/:id', (req, res) => {
     const { id } = req.params;
 
-    findId = (note) => {
-        return note.id === id;
-    }
-
     reading('./db/db.json', 'utf8')
         .then((data) => {
             const parsedNotes = JSON.parse(data);
-            const noteDelete = parsedNotes.find(findId);
+            const noteDelete = parsedNotes.find(pn => pn.id === id);
             parsedNotes.splice(parsedNotes.indexOf(noteDelete), 1);
             console.log(parsedNotes);
             return parsedNotes;

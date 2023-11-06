@@ -1,12 +1,17 @@
 [
     {
         "title": "Dinner",
-        "text": "Make Dinner",
-        "id": "18bbeba1-e1ef-42fe-ac89-b3c506c298c5"
+        "text": "Make dinner",
+        "id": "3283a356-48f1-4a82-9dcd-4ff09509d971"
     },
     {
         "title": "Study",
         "text": "Finish project",
-        "id": "37561682-9f83-4a28-9329-9a3a2cab91a4"
+        "id": "c2e9edaf-d0e2-4de6-afbf-b22d8e1a0065"
+    },
+    {
+        "title": "SQL",
+        "text": "Learn SQL",
+        "id": "ea2db673-798d-46f6-9697-a788ad5554c3"
     }
 ]
