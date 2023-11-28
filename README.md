@@ -17,7 +17,7 @@ The Note Taker application allows end users to write notes to keep track of thei
     
 ## Installation
 
-No installation is required to use the application.  The Note Taker application has been deployed to Heroku and can be accessed at the following URL: 
+No installation is required to use the application.  The Note Taker application has been deployed to Heroku and can be accessed at the following URL: [Access the Deployed Heroku Application](https://note-taker-cj7-0fdcc612e527.herokuapp.com/)
 
 If a developer would like to access the underlying code utilized to create the application, it can be installed by cloning the repository to the local machine.  Please note, `Node.js` is required in order to run this application and will need to be installed before attempting to use the code.  The package dependencies, are included within the package.json file and can be installed through a simple `npm i` command once the repository has been successfully cloned on the local computer.  The `uuid` and `express` modules are required for this application to run correctly and must be installed prior to initializing the express.js server.
 
